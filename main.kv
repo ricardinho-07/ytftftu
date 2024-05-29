@@ -1,0 +1,180 @@
+<LoginScreen>:
+    name: 'loginscreen'
+    md_bg_color: '#E5FCE0'
+    MDFloatLayout:
+        Image:
+            source: 'logo.jpeg'
+            size_hint: (0.7, 0.7)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+        MDLabel:
+            text: 'Entrar'
+            text_color: 1, 1, 1, 1
+            font_size: dp(23)
+            bold: True
+            halign: 'center'
+            pos_hint: {'center_x': 0.2, 'center_y': 0.47}
+        MDTextFieldRect:
+            size_hint: 0.8, None
+            height: dp(32)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+            hint_text: 'Email'
+        MDTextFieldRect:
+            size_hint: 0.8, None
+            height: dp(32)
+            password: True
+            pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+            hint_text: 'Senha'
+        
+        MDRaisedButton:
+            text: 'Login'
+            text_color: 0, 0, 0, 1
+            md_bg_color: 1, 1, 1, 1
+            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+            size_hint_x: .8
+            elevation:0
+            on_release: root.manager.current = 'receitas'
+    
+<Receitas>:
+    name: 'receitas'
+    FloatLayout:
+        MDTopAppBar:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.967}
+            elevation: 0
+            md_bg_color: '#E5FCE0'
+            MDLabel:
+                text: 'Fábrica de sabores'
+                bold: True
+                halign: 'center'
+                font_size: dp(20)
+                pos_hint: {'center_x': 0.5, 'center_y': 0.97}
+                theme_text_color: 'Custom'
+                text_color: 0, 0, 0 ,1
+        MDCard:
+            size_hint: (0.87, 0.27)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.75}
+            on_release: 
+                root.manager.current = 'receitacookie'
+                root.manager.transition.direction = 'left'
+                        
+            FitImage:
+                source: 'cookie.jpg'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint: 1, 1
+                radius: 15
+        MDCard:
+            size_hint: (0.87, 0.27)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.45}
+            on_release: 
+                root.manager.current = 'receitabrownie'
+                root.manager.transition.direction = 'left'
+                        
+            FitImage:
+                source: 'brownie.jpg'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint: 1, 1
+                radius: 15
+        MDCard:
+            size_hint: (0.87, 0.27)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.15}
+            on_release: 
+                root.manager.current = 'receitabolodepote'
+                root.manager.transition.direction = 'left'
+                        
+            FitImage:
+                source: 'bolodepote.jpg'
+                allow_stretch: True
+                keep_ratio: False
+                size_hint: 1, 1
+                radius: 15
+        MDFillRoundFlatButton:
+            text: 'Cookies'
+            md_bg_color: '#E5FCE0'
+            text_color: 0, 0, 0 ,1
+            pos_hint: {'center_x': 0.5, 'center_y': 0.65}
+            size_hint_x: .8
+            elevation:0
+            on_release: 
+                root.manager.current = 'receitacookies'
+                root.manager.transition.direction = 'left'
+        MDFillRoundFlatButton:
+            text: 'Brownie'
+            md_bg_color: '#E5FCE0'
+            text_color: 0, 0, 0 ,1
+            pos_hint: {'center_x': 0.5, 'center_y': 0.35}
+            size_hint_x: .8
+            elevation:0
+            on_release: 
+                root.manager.current = 'receitabrownie'
+                root.manager.transition.direction = 'left'
+        MDFillRoundFlatButton:
+            text: 'Bolo de pote'
+            md_bg_color: '#E5FCE0'
+            text_color: 0, 0, 0 ,1
+            pos_hint: {'center_x': 0.5, 'center_y': 0.05}
+            size_hint_x: .8
+            elevation:0
+            on_release: 
+                root.manager.current = 'receitabolodepote'
+                root.manager.transition.direction = 'left'
+<Cookies>:
+    name: 'receitacookies'
+    MDFloatLayout:
+        MDCard:
+            style: 'filled'
+            size_hint: (1, 1)    
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            FitImage:
+                source: 'receitacookie.png'
+                allow_stretch: True
+                keep_ratio: False
+
+        MDIconButton:
+            icon: 'arrow-left'
+            theme_text_color: 'Custom'
+            text_color: 1, 1, 1, 1
+            pos_hint: {'center_x': 0.073, 'center_y': 0.965}
+            on_release: 
+                root.manager.current = 'receitas'
+                root.manager.transition.direction = 'right'
+<Brownie>:
+    name: 'receitabrownie'
+    MDFloatLayout:
+        MDCard:
+            style: 'filled'
+            size_hint: (1, 1)    
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            FitImage:
+                source: 'receitabrownie.png'
+                allow_stretch: True
+                keep_ratio: False
+
+        MDIconButton:
+            icon: 'arrow-left'
+            theme_text_color: 'Custom'
+            text_color: 1, 1, 1, 1
+            pos_hint: {'center_x': 0.073, 'center_y': 0.965}
+            on_release: 
+                root.manager.current = 'receitas'
+                root.manager.transition.direction = 'right'
+<BoloPote>:
+    name: 'receitabolodepote'
+    MDFloatLayout:
+        MDCard:
+            style: 'filled'
+            size_hint: (1, 1)    
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            FitImage:
+                source: 'receitabolodepote.png'
+                allow_stretch: True
+                keep_ratio: False
+
+        MDIconButton:
+            icon: 'arrow-left'
+            theme_text_color: 'Custom'
+            text_color: 1, 1, 1, 1
+            pos_hint: {'center_x': 0.073, 'center_y': 0.965}
+            on_release: 
+                root.manager.current = 'receitas'
+                root.manager.transition.direction = 'right'
