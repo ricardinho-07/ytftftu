@@ -27,12 +27,79 @@
         
         MDRaisedButton:
             text: 'Login'
-            text_color: 0, 0, 0, 1
-            md_bg_color: 1, 1, 1, 1
+            text_color: 1, 1, 1, 1
+            md_bg_color: '#6E8C69'
             pos_hint: {'center_x': 0.5, 'center_y': 0.2}
             size_hint_x: .8
             elevation:0
+            on_release: 
+                root.manager.current = 'receitas'
+                root.manager.transition.direction = 'left'
+
+        MDTextButton:
+            text: 'Ainda não possui uma conta? [u]Cadastre-se.[/u]'
+            bold: True
+            markup: True
+            halign: 'center'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.15}
+            font_size: dp(10)
+            size_hint_x: .8
+            on_release: 
+                root.manager.current  = 'registerscreen'
+                root.manager.transition.direction = 'left'
+            
+
+<RegisterScreen>:
+    name: 'registerscreen'
+    md_bg_color: '#E5FCE0'
+    MDFloatLayout:
+        Image:
+            source: 'logo.jpeg'
+            size_hint: (0.7, 0.7)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+        MDLabel:
+            text: 'Fazer cadastro'
+            text_color: 1, 1, 1, 1
+            font_size: dp(23)
+            bold: True
+            halign: 'center'
+            pos_hint: {'center_x': 0.35, 'center_y': 0.47}
+        MDTextFieldRect:
+            size_hint: 0.8, None
+            height: dp(32)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+            hint_text: 'Nome de usuário'
+        MDTextFieldRect:
+            size_hint: 0.8, None
+            height: dp(32)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+            hint_text: 'Email'
+        MDTextFieldRect:
+            size_hint: 0.8, None
+            height: dp(32)
+            password: True
+            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+            hint_text: 'Senha'
+        
+        MDRaisedButton:
+            text: 'Cadastrar'
+            text_color: 1, 1, 1, 1
+            md_bg_color: '#6E8C69'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.1}
+            size_hint_x: .8
+            elevation:0
             on_release: root.manager.current = 'receitas'
+        MDTextButton:
+            text: 'Já possui uma conta? [u]Faça login.[/u]'
+            bold: True
+            markup: True
+            halign: 'center'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.05}
+            font_size: dp(10)
+            size_hint_x: .8
+            on_release: 
+                root.manager.current  = 'loginscreen'
+                root.manager.transition.direction = 'right'
     
 <Receitas>:
     name: 'receitas'
@@ -40,20 +107,20 @@
         MDTopAppBar:
             pos_hint: {'center_x': 0.5, 'center_y': 0.967}
             elevation: 0
-            md_bg_color: '#E5FCE0'
+            md_bg_color: '#8C4A63'
             MDLabel:
                 text: 'Fábrica de sabores'
                 bold: True
                 halign: 'center'
                 font_size: dp(20)
-                pos_hint: {'center_x': 0.5, 'center_y': 0.97}
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
                 theme_text_color: 'Custom'
-                text_color: 0, 0, 0 ,1
+                text_color: 1, 1, 1, 1
         MDCard:
             size_hint: (0.87, 0.27)
             pos_hint: {'center_x': 0.5, 'center_y': 0.75}
             on_release: 
-                root.manager.current = 'receitacookie'
+                root.manager.current = 'receitacookies'
                 root.manager.transition.direction = 'left'
                         
             FitImage:
@@ -90,8 +157,8 @@
                 radius: 15
         MDFillRoundFlatButton:
             text: 'Cookies'
-            md_bg_color: '#E5FCE0'
-            text_color: 0, 0, 0 ,1
+            md_bg_color: '#8C4A63'
+            text_color: 1, 1, 1, 1
             pos_hint: {'center_x': 0.5, 'center_y': 0.65}
             size_hint_x: .8
             elevation:0
@@ -100,8 +167,8 @@
                 root.manager.transition.direction = 'left'
         MDFillRoundFlatButton:
             text: 'Brownie'
-            md_bg_color: '#E5FCE0'
-            text_color: 0, 0, 0 ,1
+            md_bg_color: '#8C4A63'
+            text_color: 1, 1, 1, 1
             pos_hint: {'center_x': 0.5, 'center_y': 0.35}
             size_hint_x: .8
             elevation:0
@@ -110,14 +177,23 @@
                 root.manager.transition.direction = 'left'
         MDFillRoundFlatButton:
             text: 'Bolo de pote'
-            md_bg_color: '#E5FCE0'
-            text_color: 0, 0, 0 ,1
+            md_bg_color: '#8C4A63'
+            text_color: 1, 1, 1, 1
             pos_hint: {'center_x': 0.5, 'center_y': 0.05}
             size_hint_x: .8
             elevation:0
             on_release: 
                 root.manager.current = 'receitabolodepote'
                 root.manager.transition.direction = 'left'
+
+        MDIconButton:
+            icon: 'arrow-left'
+            theme_text_color: 'Custom'
+            text_color: 1, 1, 1, 1
+            pos_hint: {'center_x': 0.073, 'center_y': 0.965}
+            on_release: 
+                root.manager.current = 'loginscreen'
+                root.manager.transition.direction = 'right'
 <Cookies>:
     name: 'receitacookies'
     MDFloatLayout:
