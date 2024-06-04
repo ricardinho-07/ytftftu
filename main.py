@@ -9,14 +9,17 @@ from kivymd.uix.screenmanager import MDScreenManager
 class LoginScreen(MDScreen):
     pass
 
+class RegisterScreen(MDScreen):
+    pass
+
 class Receitas(MDScreen):
     pass
 
 class Cookies(MDScreen):
-    pass 
+    pass
 
 class Brownie(MDScreen):
-    pass                                                                                        
+    pass
 
 class BoloPote(MDScreen):
     pass
@@ -32,6 +35,7 @@ class App(MDApp, App):
         telas.add_widget(Cookies())
         telas.add_widget(Brownie())
         telas.add_widget(BoloPote())
+        telas.add_widget(RegisterScreen())
         return telas
 
 App().run()
